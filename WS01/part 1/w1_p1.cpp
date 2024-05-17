@@ -1,3 +1,7 @@
+//I declare that this submission is the result of my own work and I only copied the code that my professor provided to complete my workshops and assignments. This submitted piece of work has not been shared with any other student or 3rd party content provider.
+//Name: Max Feng
+//Student ID:136141231
+//Date:2024/05/17
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -40,6 +44,7 @@ int main(int argc, char* argv[])
 
 	std::cout << "--------------------------\n\n";
 
+
 	// Keep a record of the In House and Delivery orders separately
 	seneca::FoodOrder recordedDeliveryOrders[6];
 	// Keep a count of how many orders recorded
@@ -52,12 +57,12 @@ int main(int argc, char* argv[])
 
 		// Rates change from day 1 to day 2
 		if (day == 1){
-			g_taxrate = 0.13;
-			g_dailydiscount = 1.15;
+			seneca::g_taxrate = 0.13;
+			seneca::g_dailydiscount = 1.15;
 		}
 		else{
-			g_taxrate = 0.14;
-			g_dailydiscount = 1.20;
+			seneca::g_taxrate = 0.14;
+			seneca::g_dailydiscount = 1.20;
 		}
 
 		// each parameter contains the orders from one day, process each one at a time
@@ -91,11 +96,11 @@ int main(int argc, char* argv[])
 				// Handle the in house and delivery orders differently
 				if (ordertag == 'I') {
 					seneca::FoodOrder copy = currentOrder;
-					copy.display();
+					copy.display(std::cout);
 				}
 				else if (ordertag == 'D'){ // adds the delivery orders to the record
 					recordedDeliveryOrders[numDeliveries++] = currentOrder;
-					currentOrder.display();
+					currentOrder.display(std::cout);
 				}
 		}
 	}
@@ -106,7 +111,7 @@ int main(int argc, char* argv[])
 	std::cout << "--------------------\n";
 	std::cout << "Name          |Order Description        |Price w/Tax |Special Price" << std::endl;
 	for (auto i = 0u; i < numDeliveries; ++i)
-		recordedDeliveryOrders[i].display();
+		recordedDeliveryOrders[i].display(std::cout);
 	std::cout << "--------------------\n";
 
 	return cout;
