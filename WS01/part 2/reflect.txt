@@ -1,0 +1,8 @@
+//I declare that this submission is the result of my own work and I only copied the code that my professor provided to complete my workshops and assignments. This submitted piece of work has not been shared with any other student or 3rd party content provider.
+//Name: Max Feng
+//Student ID:136141231
+//Date:2024/05/17
+
+The scope of internal linkage is only within the same file, it is often used to keep variables or functions private to a single file, avoiding conflicts with other files, as for external linkage, the scope is across multiple files, it allows variables or functions to be shared across different files. The counter variable in my display function in my food order.cpp is an example of internal linkage, which is only visible within the function, achieved using the static keyword. the static keyword ensures that each call to the display function shares the same counter variable but it cannot be accessible outside of the display function.
+The global variables g_taxrate and g_dailyDiscount can represent external linkage. these two variables are declared with the extern keyword in the header file, and defined in the cpp file, making them accessible across multiple files. 
+The changes I made upgrading to part 2 is replacing fixed-size character arrays with dynamically allocated memory. I implemented the rule of three (destructor, copy constructor and copy assignments) to ensure deep copying and properly deallocate the memory to prevent memory leaks. I also updated the read function using std::string buffers for dynamic input handling.
