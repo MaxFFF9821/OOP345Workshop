@@ -1,0 +1,6 @@
+//I declare that this submission is the result of my own work and I only copied the code that my professor provided to complete my workshops and assignments. This submitted piece of work has not been shared with any other student or 3rd party content provider.
+//Name: Max Feng
+//Student ID:136141231
+//Date:2024/05/24
+
+In this workshop, i learned how to implement the move function for a class with resource, i find it a lot easier to understand comparing to copying, i also learned how to use ifstream for reading files and how to count specific record by parsing the file twice, once for counting and once for storing data. Initially, I had difficulty correctly counting the number of protein sequences in the file. I solved this by ensuring that I only incremented the count when I encountered a line starting with the '>' character and not any other lines. As for the significant time difference between copy and move operations, it is because copying requires creating new copy of each resource, it will need to involve DMA and lead to longer excution time, while moving is simply transfering the existing resources without duplicating the data, results in much faster excution time.
