@@ -1,0 +1,21 @@
+During this workshop, one challenges i faced was managing dynamically allocated memory for pointers to objects. I implemented proper destructors and ensured deep copying and moving in constructors and assignment operators. It was good practice.
+
+Composition vs. Aggregation
+
+Composition involves one class owning objects of another class, and these objects are destroyed when the container is destroyed. In my Restaurant class, I used composition for managing Reservation objects:
+Restaurant::~Restaurant() {
+    for (size_t i = 0; i < m_count; ++i) {
+        delete m_reservations[i];
+    }
+    delete[] m_reservations;
+}
+
+Aggregation involves holding references to objects without owning them. In the ConfirmationSender class, I used aggregation to manage pointers to Reservation objects:
+ConfirmationSender::~ConfirmationSender() {
+    delete[] m_reservations;
+}
+
+Move vs. Copy Functions
+
+The copy constructor and copy assignment operator create a new copy of an object. They are used to ensure that when one object is copied to another, each has its own copy of the contained objects. The move constructor and move assignment operator transfer ownership of the resources from one object to another, leaving the original object in a valid but empty state. This is used to optimize performance by avoiding unnecessary copying.
+
