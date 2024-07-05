@@ -1,0 +1,11 @@
+Functors vs. Lambda Expressions
+Functors are objects that act like functions, which can store state and have more complex behavior. In the SpellChecker class, a functor could be useful if we needed to keep track of more complex state changes. Lambda expressions are simpler and more concise. For example, in w5_p2.cpp, I used a lambda expression to update book prices based on conversion rates because it was a straightforward operation.
+
+Handling Exceptions in SpellChecker
+The SpellChecker constructor throws an exception if it cannot open a file. An alternative approach would be to set an internal error state and check this state before using the object. This avoids exceptions and makes error checking more explicit.
+
+Redesigning Movie and Book Classes
+The Movie and Book classes both contain similar code for loading data from strings. To avoid duplicating this logic, I created a trim function to remove spaces from the beginning and end of the strings, which is used in both classes, it simplifies the constructors of both Book and Movie by removing leading and trailing spaces.
+
+Default Constructors
+The Book and Movie classes both have default constructors, but these might not always be necessary. If objects are always created with specific data, we might consider removing the default constructor to ensure they are always properly initialized. However, keeping the default constructor is useful for creating arrays of objects or using them in containers that need default-constructible types. This decision depends on how the classes are used. For flexibility, I kept the default constructors in my implementation.
