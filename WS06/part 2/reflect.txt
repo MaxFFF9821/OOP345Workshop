@@ -1,0 +1,11 @@
+In this workshop, I learned about managing polymorphic objects using the std::vector container in C++ and handling dynamic memory allocation and deallocation. This experience helped me understand key concepts like dynamic memory management, polymorphism, and using STL containers.
+
+One important lesson was the need to deallocate dynamically allocated memory in the vector of resources. In the Directory class, we used a std::vector<Resource*> to store pointers to Resource objects. Since these objects are allocated dynamically using new, it’s important to deallocate them using delete to prevent memory leaks. Without proper deallocation, the program would consume more and more memory, leading to potential crashes. In the destructor of the Directory class, I ensured that each resource in the vector was deleted, freeing up the memory.
+
+To call specific functions for Directory objects stored in a Resource*, I had to use dynamic casting. This is necessary because Resource is a base class, and to call derived class functions, we need to cast the base class pointer to the derived class type. For example, to call the count function on a Directory object, I used dynamic_cast<Directory*>(entry), which checks if the pointer can be safely converted to Directory*.
+
+Using std::vector<seneca::Resource*> instead of std::vector<seneca::Resource> was necessary because Resource is an abstract class, which cannot be instantiated. Abstract classes are meant to be base classes for other classes. Using pointers allows us to store objects of derived classes like File and Directory and use polymorphism to call their overridden methods. If we had used std::vector<seneca::Resource>, we wouldn't have been able to store File or Directory objects because Resource cannot be instantiated.
+
+I faced some challenges with ensuring the directory structure was maintained correctly. To solve this, I implemented a helper function to trim whitespace from paths and used recursion to update paths of nested directories. This helped in maintaining accurate paths and correctly linking resources in the filesystem.
+
+Overall, this workshop helped me better understand C++ concepts such as dynamic memory management, polymorphism, and using STL containers, making me more confident in handling complex C++ programming tasks.
