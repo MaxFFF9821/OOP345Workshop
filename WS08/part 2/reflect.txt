@@ -1,0 +1,11 @@
+In this workshop, I deepened my understanding of C++ concepts like singleton patterns, template classes, and basic encryption techniques.
+
+We couldn't use a unique_ptr in the Database class because it enforces single ownership, while a singleton needs to be accessible from multiple parts of the program. Therefore, shared_ptr is more suitable as it allows shared access to the singleton instance.
+
+To transform the class into a templated one, I replaced specific data types with a template parameter T. This involved updating the constructor, GetValue, SetValue, and encryptDecrypt methods to handle the generic type. I also specialized encryptDecrypt for std::string and long long to ensure correct encryption for these types.
+
+A singleton can be created without static members by using a local static instance within a method. This approach ensures only one instance is created and persists throughout the program's lifetime.
+
+The Database class does not implement copy or move operations, which is intentional. In a singleton pattern, copying or moving instances would violate the principle of having a single instance. Thus, it's not a bug but a design choice to prevent duplication.
+
+The constructor and destructor of the Database class are called twice because we instantiated two different template specializations: Database<std::string> and Database<long long>. Each specialization is treated as a separate type with its own static instance.
